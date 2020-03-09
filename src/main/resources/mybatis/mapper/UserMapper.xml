@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="springcaching.modules.dao.UserDao">
+
+    <select id="getUsers" resultType="springcaching.modules.entities.User">
+        select * from user
+    </select>
+
+    <select id="getUserById" resultType="springcaching.modules.entities.User">
+        select * from user where id=#{id}
+    </select>
+
+    <update id="updateUser" parameterType="springcaching.modules.entities.User">
+        UPDATE user SET
+        username=#{username},
+        real_name=#{realName}
+        WHERE id=#{id}
+    </update>
+
+    <delete id="deleteUser">
+        delete from user where id=#{id}
+    </delete>
+
+<!--    <insert id="addUser">-->
+<!--        INSERT INTO user-->
+<!--        ( username,-->
+<!--          real_name,-->
+<!--          password,-->
+<!--          gender,-->
+<!--          birthday,-->
+<!--          user_type-->
+<!--        ) VALUES-->
+<!--        (-->
+<!--          #{username},-->
+<!--          #{realName},-->
+<!--          #{password},-->
+<!--          #{gender},-->
+<!--          now(),-->
+<!--          #{userType}-->
+<!--        )-->
+<!--    </insert>-->
+
+
+
+</mapper>
